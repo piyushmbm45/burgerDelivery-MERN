@@ -2,4 +2,8 @@
 1. App.js is a root component. All other components pass through it 
 means all other components are child components of App component.
 
-2. 
+2. A <Switch> looks through all its children <Route>
+          elements and renders the first one whose path
+          matches the current URL. Use a <Switch> any time
+          you have multiple routes, but you want only one
+          of them to render at a time
