@@ -11,15 +11,15 @@ const Navigation = () => {
   return (
     <>
       <nav className="container mx-auto flex items-center justify-between py-4">
-        <div className="flex items-center justify-between">
-          <Link to="/">
+        <div >
+          <Link className="flex items-center justify-between" to="/">
             <img
               src="/images/logo.png"
               alt="logo"
               style={{ width: 45, height: 45 }}
             />
-          </Link>
           <p className="px-2">Just Burger</p>
+          </Link>
         </div>
         <ul className="flex items-center">
           <li className="ml-6">
