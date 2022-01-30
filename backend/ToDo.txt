@@ -1,0 +1,10 @@
+end point to create 
+
+
+register a user
+login a user
+add new products
+delete products
+update products
+get all Products
+get single products
