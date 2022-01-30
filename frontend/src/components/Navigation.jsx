@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const cartStyle = {
-    background: "#F59E0D",
     display: "flex",
     borderRadius: "50px",
     padding: "6px 12px",
@@ -11,28 +10,32 @@ const Navigation = () => {
   return (
     <>
       <nav className="container mx-auto flex items-center justify-between py-4">
-        <div >
-          <Link className="flex items-center justify-between" to="/">
+        <div className="ml-12">
+          <Link className="flex items-center justify-between ml-6" to="/">
             <img
               src="/images/logo.png"
               alt="logo"
               style={{ width: 45, height: 45 }}
             />
-          <p className="px-2">Just Burger</p>
+            <p className="px-2 font-bold">Just Burger</p>
           </Link>
         </div>
         <ul className="flex items-center">
-          <li className="ml-6">
+          <li>
             <Link to="/">Home</Link>
           </li>
           <li className="ml-6">
             <Link to="/products">Products</Link>
           </li>
-          <li className="ml-6">
+          <li className="ml-6 mr-6">
             <Link to="/cart">
-              <div className="items-center justify-between" style={cartStyle}>
+              <div
+                style={cartStyle}
+                className="items-center justify-between bg-yellow-400 hover:bg-yellow-600"
+              >
                 <span>10</span>
-                <img className="ml-2"
+                <img
+                  className="ml-2"
                   src="/images/shopping-cart.png"
                   alt="cart-icon"
                   style={{ width: 35, height: 35 }}

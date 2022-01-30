@@ -7,7 +7,7 @@ function Home() {
     <>
       <div className="hero py-16">
         <div className="container mx-auto flex items-center justify-between">
-          <div className="w-1/2">
+          <div className="w-1/2 m-12">
             <h6 className="text-lg">
               <em>Are You Hungry?</em>
             </h6>
