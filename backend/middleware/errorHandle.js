@@ -1,5 +1,7 @@
 import { DEBUG_MODE } from "../config/index.js";
 import pkg from "joi";
+import CustomErrorHandler from "../services/CustomErrorHandler";
+
 const { ValidationError } = pkg;
 
 const errorHandler = (err, req, res, next) => {
@@ -10,6 +12,12 @@ const errorHandler = (err, req, res, next) => {
   };
   if (err instanceof ValidationError) {
     statusCode = 422;
+    data = {
+      message: err.message,
+    };
+  }
+  if (err instanceof CustomErrorHandler) {
+    statusCode = err.statusCode;
     data = {
       message: err.message,
     };
