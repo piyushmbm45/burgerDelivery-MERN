@@ -1,5 +1,6 @@
-import Joi from "joi";
-import CustomErrorHandler from "../../services/CustomErrorHandler";
+const Joi = require("joi");
+const { CustomErrorHandler } = require("../../services/CustomErrorHandler");
+const { User } = require("../../models");
 
 const registerController = {
   async register(req, res, next) {
@@ -40,4 +41,4 @@ const registerController = {
   },
 };
 
-export default registerController;
+module.exports = registerController;

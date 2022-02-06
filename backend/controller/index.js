@@ -1,1 +1,3 @@
-export {default as registerController } from './auth/registerController.js';
+const registerController = require("./auth/registerController");
+
+module.export = registerController;

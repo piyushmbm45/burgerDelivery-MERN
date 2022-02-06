@@ -1,6 +1,6 @@
-import { DEBUG_MODE } from "../config/index.js";
-import pkg from "joi";
-import CustomErrorHandler from "../services/CustomErrorHandler";
+const { DEBUG_MODE } = require("../config/index.js");
+const pkg = require("joi");
+const { CustomErrorHandler } = require("../services/CustomErrorHandler");
 
 const { ValidationError } = pkg;
 
@@ -25,4 +25,4 @@ const errorHandler = (err, req, res, next) => {
   return res.status(statusCode).json(data);
 };
 
-export default errorHandler;
+module.exports = errorHandler;
