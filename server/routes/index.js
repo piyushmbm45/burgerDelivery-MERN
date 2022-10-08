@@ -1,7 +1,7 @@
-const express = require("express");
-const registerController = require("../controller/auth/registerController");
-const router = express.Router();
+import { Router } from "express";
+import registerController from "../controller/auth/registerController.js";
+const router = Router();
 
-router.get("/register", registerController.register);
+router.post("/register", registerController.register);
 
-module.exports = router;
+export default router;

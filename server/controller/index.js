@@ -1,3 +1,3 @@
-const registerController = require("./auth/registerController");
+import registerController from "./auth/registerController.js";
 
 module.export = registerController;

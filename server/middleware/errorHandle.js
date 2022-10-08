@@ -1,14 +1,15 @@
-const { DEBUG_MODE } = require("../config/index.js");
-const pkg = require("joi");
-const { CustomErrorHandler } = require("../services/CustomErrorHandler");
+import { DEBUG_MODE } from '../config/index.js';
+import Joi from 'joi';
+import CustomErrorHandler from '../services/CustomErrorHandler';
 
-const { ValidationError } = pkg;
+const { ValidationError } = Joi;
 
 const errorHandler = (err, req, res, next) => {
+  console.log('🚀 ~ file: errorHandle.js ~ line 27 ~ errorHandler ~ err', err);
   let statusCode = 500;
   let data = {
-    message: "internal server error",
-    ...(DEBUG_MODE === "true" && { originalError: err.message }),
+    message: 'internal server error',
+    ...(DEBUG_MODE === 'true' && { originalError: err.message }),
   };
   if (err instanceof ValidationError) {
     statusCode = 422;
@@ -25,4 +26,4 @@ const errorHandler = (err, req, res, next) => {
   return res.status(statusCode).json(data);
 };
 
-module.exports = errorHandler;
+export default errorHandler;
