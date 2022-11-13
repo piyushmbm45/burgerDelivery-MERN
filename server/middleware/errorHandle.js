@@ -1,11 +1,8 @@
-import { DEBUG_MODE } from '../config/index.js';
-import Joi from 'joi';
+import { DEBUG_MODE } from '../config';
+import { ValidationError } from 'joi';
 import CustomErrorHandler from '../services/CustomErrorHandler';
 
-const { ValidationError } = Joi;
-
 const errorHandler = (err, req, res, next) => {
-  console.log('🚀 ~ file: errorHandle.js ~ line 27 ~ errorHandler ~ err', err);
   let statusCode = 500;
   let data = {
     message: 'internal server error',
@@ -18,7 +15,7 @@ const errorHandler = (err, req, res, next) => {
     };
   }
   if (err instanceof CustomErrorHandler) {
-    statusCode = err.statusCode;
+    statusCode = err.status;
     data = {
       message: err.message,
     };

@@ -8,6 +8,5 @@ class CustomErrorHandler extends Error {
     return new CustomErrorHandler(409, msg);
   }
 }
-// Error.captureStackTrace(this, exports.assert);
 
 export default CustomErrorHandler;

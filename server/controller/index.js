@@ -1,3 +1,1 @@
-import registerController from "./auth/registerController.js";
-
-module.export = registerController;
+export { default as registerController } from './auth/registerController';

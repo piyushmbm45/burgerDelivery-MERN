@@ -1,3 +1,2 @@
-const { User } = require("./user").default;
-
-module.export = User;
+export { default as User } from './user';
+export { default as RefreshToken } from './refreshToken';
