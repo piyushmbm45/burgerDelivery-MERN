@@ -1,12 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import AuthService from '../services/auth.service';
 
 const Navigation = () => {
   const cartStyle = {
-    display: "flex",
-    borderRadius: "50px",
-    padding: "6px 12px",
+    display: 'flex',
+    borderRadius: '50px',
+    padding: '6px 12px',
   };
+  const [currentUser, setCurrentUser] = useState(undefined);
+  console.log(
+    'file: Navigation.jsx:12 ~ Navigation ~ currentUser:',
+    currentUser
+  );
+
+  useEffect(() => {
+    const user = AuthService.getCurrentUser();
+
+    if (user) {
+      setCurrentUser(user);
+    }
+  }, []);
+
   return (
     <>
       <nav className="container mx-auto flex items-center justify-between py-4">
@@ -27,6 +42,15 @@ const Navigation = () => {
           <li className="ml-6">
             <Link to="/products">Products</Link>
           </li>
+          {currentUser ? (
+            <li className="ml-6">
+              <Link to="/logout">Logout</Link>
+            </li>
+          ) : (
+            <li className="ml-6">
+              <Link to="/login">Login</Link>
+            </li>
+          )}
           <li className="ml-6 mr-6">
             <Link to="/cart">
               <div

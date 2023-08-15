@@ -12,6 +12,7 @@ const verifyJWT = (req, res, next) => {
     } //invalid token
     req.user = decoded.UserInfo.username;
     req.roles = decoded.UserInfo.roles;
+    req.email = decoded.UserInfo.email;
     next();
   });
 };
