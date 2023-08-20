@@ -1,21 +1,25 @@
-import { useState } from 'react';
-import { signupFields } from '../constants/formFields';
+import React, { useState } from 'react';
+import { HtmlEleField, signupFields } from '../constants/formFields';
 import FormAction from './FormAction';
 import Input from './Input';
 import AuthService from '../services/auth.service';
 
+export interface fieldI {
+  [key: string]: string;
+}
+
 const fields = signupFields;
-let fieldsState = {};
+let fieldsState: fieldI = {};
 
 fields.forEach((field) => (fieldsState[field.id] = ''));
 
 export default function Signup() {
   const [signupState, setSignupState] = useState(fieldsState);
 
-  const handleChange = (e) =>
+  const handleChange = (e: any) =>
     setSignupState({ ...signupState, [e.target.id]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log(signupState);
     createAccount();
@@ -38,7 +42,7 @@ export default function Signup() {
         onSubmit={handleSubmit}
       >
         <div className="">
-          {fields.map((field) => (
+          {fields.map((field: HtmlEleField) => (
             <Input
               key={field.id}
               handleChange={handleChange}
@@ -50,6 +54,7 @@ export default function Signup() {
               type={field.type}
               isRequired={field.isRequired}
               placeholder={field.placeholder}
+              customClass=""
             />
           ))}
           <FormAction handleSubmit={handleSubmit} text="Signup" />

@@ -1,21 +1,22 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { loginFields } from '../constants/formFields';
 import FormAction from './FormAction';
 import FormExtra from './FormExtra';
 import Input from './Input';
+import { fieldI } from './Signup';
 
 const fields = loginFields;
-let fieldsState = {};
+let fieldsState: fieldI = {};
 fields.forEach((field) => (fieldsState[field.id] = ''));
 
 export default function Login() {
   const [loginState, setLoginState] = useState(fieldsState);
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setLoginState({ ...loginState, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     authenticateUser();
   };
@@ -60,6 +61,7 @@ export default function Login() {
               type={field.type}
               isRequired={field.isRequired}
               placeholder={field.placeholder}
+              customClass=""
             />
           ))}
         </div>

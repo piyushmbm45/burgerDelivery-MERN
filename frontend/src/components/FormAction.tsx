@@ -1,9 +1,18 @@
+import * as React from 'react';
+
+interface FormActionI {
+  handleSubmit: (e: any) => void;
+  type?: string;
+  action?: HTMLButtonElement['type'];
+  text: string;
+}
+
 export default function FormAction({
   handleSubmit,
   type = 'Button',
   action = 'submit',
   text,
-}) {
+}: FormActionI) {
   return (
     <>
       {type === 'Button' ? (

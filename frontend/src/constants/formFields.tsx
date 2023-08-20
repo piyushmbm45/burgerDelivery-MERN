@@ -1,4 +1,4 @@
-const loginFields = [
+const loginFields: HtmlEleField[] = [
   {
     labelText: 'Email address',
     labelFor: 'email-address',
@@ -21,7 +21,18 @@ const loginFields = [
   },
 ];
 
-const signupFields = [
+export interface HtmlEleField {
+  labelText: string;
+  labelFor: string;
+  id: string;
+  name: string;
+  type: string;
+  autoComplete: string;
+  isRequired: true;
+  placeholder: string;
+}
+
+const signupFields: HtmlEleField[] = [
   {
     labelText: 'Username',
     labelFor: 'username',

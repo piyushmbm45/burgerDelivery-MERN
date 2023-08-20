@@ -1,11 +1,19 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+
+interface HeaderI {
+  heading: string;
+  paragraph: string;
+  linkName: string;
+  linkUrl: string;
+}
 
 export default function Header({
   heading,
   paragraph,
   linkName,
   linkUrl = '#',
-}) {
+}: HeaderI) {
   return (
     <div className="mb-10">
       <div className="flex justify-center">
